@@ -1,0 +1,31 @@
+    
+      <h1>Cardápio da Semana</h1>
+    
+  </div>
+
+  <div id="translatedContent">
+    
+      <h1>Cardápio da Semana</h1>
+    
+  </div>
+
+  <button onclick="toggleContent('originalContent')">Mostrar Original</button>
+  <button onclick="toggleContent('translatedContent')">Mostrar Traduzido</button>
+
+  <script type="text/javascript">
+    function toggleContent(contentId) {
+      var content = document.getElementById(contentId);
+      var otherContentId = (contentId === 'originalContent') ? 'translatedContent' : 'originalContent';
+      var otherContent = document.getElementById(otherContentId);
+
+      content.style.display = 'block';
+      otherContent.style.display = 'none';
+    }
+
+    translateContent();
+  </script>
+
+
+</body>
+
+</html>
