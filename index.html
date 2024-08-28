@@ -1,3 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tradução Automática</title>
+  <style>
+    body {
+      position: relative;
+      min-height: 100%;
+      top: 0 !important;
+    }
+
+    .skiptranslate {
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    function translateContent() {
+      // Obtém o conteúdo da div que você deseja traduzir
+      var contentToTranslate = document.getElementById("translatedContent").innerHTML;
+
+      // Define o idioma de origem e o idioma para o qual você deseja traduzir
+      var sourceLanguage = 'pt';
+      var targetLanguage = 'de';
+
+      // Faz a chamada para a API do Google Translate
+      var apiUrl = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' + sourceLanguage + '&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(contentToTranslate);
+
+      // Faz a requisição AJAX para traduzir o conteúdo
+      $.ajax({
+        url: apiUrl,
+        success: function (response) {
+          // Atualiza o conteúdo traduzido na div
+          document.getElementById("translatedContent").innerHTML = response[0][0][0];
+        }
+      });
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <div id="originalContent" style="display: none;">
     
       <h1>Cardápio da Semana</h1>
     
